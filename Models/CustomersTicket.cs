@@ -7,11 +7,11 @@ namespace TodoApi.Models
 {
     public class CustomersTicket
     {
-        public int IdTicket { get; set; }
+        public int Id { get; set; }
         public String Firstname { get; set; }
         public String Lastname { get; set; }
         public int IdFlight { get; set; }
-        public int TicketPrice { get; set; }
+        public double TicketPrice { get; set; }
 
     }
 }

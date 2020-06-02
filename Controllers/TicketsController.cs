@@ -44,11 +44,11 @@ namespace TodoApi.Controllers
         [HttpGet("Price/Sum/{idFlight}")]
         public async Task<ActionResult<double>> GetTotalPrice(int idFlight)
         {
-            var tickets= await _context.Ticket
+            var tickets = await _context.Ticket
                 .Where(x => x.IdFlight == idFlight)
                 .ToListAsync();
             var sum = 0.0;
-            for (int i = 0; i<tickets.Count; i++)
+            for (int i = 0; i < tickets.Count; i++)
             {
                 sum += tickets[i].SalePrice;
             }
@@ -58,10 +58,12 @@ namespace TodoApi.Controllers
         public async Task<ActionResult<double>> GetAveragePrice(String destination)
         {
             var tickets = await _context.Ticket.ToListAsync();
+            Console.WriteLine(destination);
+           
             var flights = await _context.Flight
-                .Where(x => x.Arrival == destination)
+                .Where(x => x.Destination == destination)
                 .ToListAsync();
-            var sum=0.0;
+            var sum = 0.0;
             tickets.Clear();
             for (int i = 0; i < flights.Count; i++)
             {
@@ -73,38 +75,42 @@ namespace TodoApi.Controllers
                     tickets.Add(tempticket[j]);
                 }
             }
-            for (int i=0; i< tickets.Count; i++)
+            for (int i = 0; i < tickets.Count; i++)
             {
                 sum += tickets[i].SalePrice;
             }
-
-            return sum/tickets.Count;
-        }
-        /*
-        // GET: api/Tickets/destination
-        [HttpGet("destination/{destination}")]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTicketbyDestination(String destination)
-        {
-            var tickets = await _context.Ticket.ToListAsync();
-            var flights = await _context.Flight
-                .Where(x=> x.Arrival==destination)
-                .ToListAsync();
-            tickets.Clear();
-            var CustomersTicket
-            for(int i = 0; i < flights.Count; i++)
+            if (tickets.Count == 0)
             {
-                var tempticket = await _context.Ticket
-                    .Where(x=> x.IdFlight==flights[i].Id)
-                    .ToListAsync();
-                for(int j=0;j < tempticket.Count; j++)
-                {
-                    tickets.Add(tempticket[j]);
-                }
+                return NotFound();
             }
 
-            return tickets;
+            return sum / tickets.Count;
         }
-        */
+
+        // GET: api/Tickets/destination
+        [HttpGet("destination/{destination}")]
+        public async Task<ActionResult<IEnumerable<CustomersTicket>>> GetTicketbyDestination(String destination)
+        {
+            var flights = await _context.Flight
+                .Where(x => x.Destination == destination)
+                .ToListAsync();
+            var CustomersTicket = await _context.CustomersTicket.ToListAsync();
+            for (int i = 0; i < flights.Count; i++)
+            {
+                var tempticket = await _context.Ticket
+                    .Where(x => x.IdFlight == flights[i].Id)
+                    .ToListAsync();
+                for (int j = 0; j < tempticket.Count; j++)
+                {
+                    var tempcustomers = await _context.Customers
+                        .Where(x => x.IdTicket == tempticket[j].Id)
+                        .ToListAsync();
+                    CustomersTicket.Add(CustomerTicketChange(tempticket[j], tempcustomers[0]));
+                }
+            }
+            return CustomersTicket;
+        }
+
         // POST: api/Tickets
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -116,5 +122,14 @@ namespace TodoApi.Controllers
 
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
+        private static CustomersTicket CustomerTicketChange(Ticket ticket,Customer customer) =>
+            new CustomersTicket
+            {
+                Firstname = customer.Firstname,
+                Lastname = customer.Lastname,
+                IdFlight = ticket.IdFlight,
+                TicketPrice = ticket.SalePrice
+            };
+        
     }
 }

@@ -13,9 +13,6 @@ namespace TodoApi.Models
                 : base(options)
             {
             }
-
-          
-
             public DbSet<TodoApi.Models.Booking> Booking { get; set; }
 
             public DbSet<TodoApi.Models.Customer> Customers { get; set; }
