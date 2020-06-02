@@ -14,14 +14,15 @@ namespace TodoApi.Models
             {
             }
 
-            public DbSet<TodoItem> TodoItems { get; set; }
+          
 
             public DbSet<TodoApi.Models.Booking> Booking { get; set; }
 
-            public DbSet<TodoApi.Models.Customer> Flights { get; set; }
+            public DbSet<TodoApi.Models.Customer> Customers { get; set; }
 
             public DbSet<TodoApi.Models.Flights> Flight { get; set; }
 
             public DbSet<TodoApi.Models.Ticket> Ticket { get; set; }
-        }
+            public DbSet<TodoApi.Models.CustomersTicket> CustomersTicket { get; set; }
+    }
 }

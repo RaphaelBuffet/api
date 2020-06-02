@@ -42,10 +42,10 @@ namespace TodoApi.Controllers
         }
         // GET: api/Flights/available
         [HttpGet("available")]
-        public async Task<ActionResult<IEnumerable<Flights>>> GetAllFlight(Boolean available)
+        public async Task<ActionResult<IEnumerable<Flights>>> GetAllFlightAvailable()
         {
             return await _context.Flight
-                .Where(i =>i.isComplete == false)
+                .Where(x =>x.isComplete == false)
                 .ToListAsync();
         }
         // GET: api/Flights/Price
@@ -56,29 +56,28 @@ namespace TodoApi.Controllers
             var tickets = await _context.Ticket
                 .Where(x=> x.IdFlight==id)
                 .ToListAsync();
-            var price = flight.basePrice;
-            var nbticket = tickets.Count;
             DateTime LimitDate = DateTime.Now;
+
             if (flight == null)
             {
                 return NotFound();
             }
-            if (flight.Seats * 0.8 < nbticket)
+            if (flight.Seats * 0.8 < tickets.Count)
             {
-                return price * 1.5;
+                return flight.basePrice * 1.5;
             }
             LimitDate.AddMonths(1);
-            if (flight.Seats *0.5> nbticket && flight.Date < LimitDate)
+            if (flight.Seats *0.5> tickets.Count && flight.Date < LimitDate)
             {
-                return price * 0.7;
+                return flight.basePrice * 0.7;
             }
             LimitDate.AddMonths(1);
-            if (flight.Seats * 0.2 > nbticket && flight.Date < LimitDate)
+            if (flight.Seats * 0.2 > tickets.Count && flight.Date < LimitDate)
             {
-                return price * 0.8;
+                return flight.basePrice * 0.8;
             }
 
-            return price;
+            return flight.basePrice;
         }
         // POST: api/Flight
         // To protect from overposting attacks, enable the specific properties you want to bind to, for

@@ -9,7 +9,7 @@ using TodoApi.Models;
 
 namespace TodoApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Tickets")]
     [ApiController]
     public class TicketsController : ControllerBase
     {
@@ -61,7 +61,7 @@ namespace TodoApi.Controllers
             var flights = await _context.Flight
                 .Where(x => x.Arrival == destination)
                 .ToListAsync();
-            double sum=0;
+            var sum=0.0;
             tickets.Clear();
             for (int i = 0; i < flights.Count; i++)
             {
@@ -80,6 +80,7 @@ namespace TodoApi.Controllers
 
             return sum/tickets.Count;
         }
+        /*
         // GET: api/Tickets/destination
         [HttpGet("destination/{destination}")]
         public async Task<ActionResult<IEnumerable<Ticket>>> GetTicketbyDestination(String destination)
@@ -89,6 +90,7 @@ namespace TodoApi.Controllers
                 .Where(x=> x.Arrival==destination)
                 .ToListAsync();
             tickets.Clear();
+            var CustomersTicket
             for(int i = 0; i < flights.Count; i++)
             {
                 var tempticket = await _context.Ticket
@@ -102,7 +104,7 @@ namespace TodoApi.Controllers
 
             return tickets;
         }
-
+        */
         // POST: api/Tickets
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
