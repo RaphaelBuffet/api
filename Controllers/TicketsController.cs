@@ -118,7 +118,7 @@ namespace TodoApi.Controllers
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
             var price = ticket.SalePrice;
-            var flight = await _context.Flight.FindAsync(ticket.Id);
+            var flight = await _context.Flight.FindAsync(ticket.IdFlight);
             var tickets = await _context.Ticket
                 .Where(x => x.IdFlight == ticket.IdFlight)
                 .ToListAsync();
@@ -146,7 +146,6 @@ namespace TodoApi.Controllers
                 
                 new Ticket
                 {
-                    Id= ticket.Id,
                     IdFlight = ticket.IdFlight,
                     SalePrice= price
                 });
