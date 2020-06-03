@@ -135,8 +135,6 @@ C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\nat
 C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.csproj.CoreCompileInputs.cache
-C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.AssemblyInfoInputs.cache
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.AssemblyInfo.cs
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.RazorTargetAssemblyInfo.cache
@@ -147,3 +145,13 @@ C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.dll
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.pdb
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.genruntimeconfig.cache
 C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.csprojAssemblyReference.cache
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\raphy\source\repos\TodoApi\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
+C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.csproj.CoreCompileInputs.cache
+C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\raphy\source\repos\TodoApi\obj\Debug\netcoreapp3.1\RESTApi.MvcApplicationPartsAssemblyInfo.cache
