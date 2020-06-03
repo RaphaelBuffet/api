@@ -8535,9 +8535,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\raphy\\source\\repos\\TodoApi\\TodoApi.csproj",
-      "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\raphy\\source\\repos\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "C:\\Users\\raphy\\source\\repos\\TodoApi\\RESTApi.csproj",
+      "projectName": "RESTApi",
+      "projectPath": "C:\\Users\\raphy\\source\\repos\\TodoApi\\RESTApi.csproj",
       "packagesPath": "C:\\Users\\raphy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\raphy\\source\\repos\\TodoApi\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MrLYphsBGZUypY7pclmPl1D7L8ZnUbsXezFhpOpdaBPLS7JDn+HAZTU9UgXKVTfJ7EtsHngfobgDXx/vTmGxeA==",
+  "dgSpecHash": "1A47212yljUVZkRmh1IwV2mWOPdVtEuswZWmRzuv1k0pYVBnatmZm1nXXgTb9ER4D1ye+cTM3rpofvHRSjJIpA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\raphy\\source\\repos\\TodoApi\\TodoApi.csproj",
+  "projectFilePath": "C:\\Users\\raphy\\source\\repos\\TodoApi\\RESTApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\raphy\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\raphy\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
