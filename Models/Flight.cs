@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TodoApi.Models
 {
-    public class Flights
+    public class Flight
     {
         public int Id { get; set; }
         public string Department { get; set; }

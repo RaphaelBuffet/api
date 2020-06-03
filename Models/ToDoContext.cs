@@ -17,7 +17,7 @@ namespace TodoApi.Models
 
             public DbSet<TodoApi.Models.Customer> Customers { get; set; }
 
-            public DbSet<TodoApi.Models.Flights> Flight { get; set; }
+            public DbSet<TodoApi.Models.Flight> Flight { get; set; }
 
             public DbSet<TodoApi.Models.Ticket> Ticket { get; set; }
             public DbSet<TodoApi.Models.CustomersTicket> CustomersTicket { get; set; }

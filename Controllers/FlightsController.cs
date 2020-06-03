@@ -11,25 +11,25 @@ namespace TodoApi.Controllers
 {
     [Route("api/Flight")]
     [ApiController]
-    public class FlightsController : ControllerBase
+    public class FlightController : ControllerBase
     {
         private readonly TodoContext _context;
 
-        public FlightsController(TodoContext context)
+        public FlightController(TodoContext context)
         {
             _context = context;
         }
 
-        // GET: api/Flights
+        // GET: api/Flight
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Flights>>> GetAllFlight()
+        public async Task<ActionResult<IEnumerable<Flight>>> GetAllFlight()
         {
             return await _context.Flight.ToListAsync();
         }
 
-        // GET: api/Flights/5
+        // GET: api/Flight/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Flights>> GetFlight(int id)
+        public async Task<ActionResult<Flight>> GetFlight(int id)
         {
             var flight = await _context.Flight.FindAsync(id);
 
@@ -40,15 +40,15 @@ namespace TodoApi.Controllers
 
             return flight;
         }
-        // GET: api/Flights/available
+        // GET: api/Flight/available
         [HttpGet("available")]
-        public async Task<ActionResult<IEnumerable<Flights>>> GetAllFlightAvailable()
+        public async Task<ActionResult<IEnumerable<Flight>>> GetAllFlightAvailable()
         {
             return await _context.Flight
                 .Where(x =>x.isComplete == false)
                 .ToListAsync();
         }
-        // GET: api/Flights/Price
+        // GET: api/Flight/Price
         [HttpGet("Price/{id}")]
         public async Task<ActionResult<double>> GetFlightPrice(int id)
         {
@@ -82,12 +82,12 @@ namespace TodoApi.Controllers
         // POST: api/Flight
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         [HttpPost]
-        public async Task<ActionResult<Flights>> PostFlight(Flights flights)
+        public async Task<ActionResult<Flight>> PostFlight(Flight flight)
         {
-            _context.Flight.Add(flights);
+            _context.Flight.Add(flight);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFlight", new { id = flights.Id }, flights);
+            return CreatedAtAction("GetFlight", new { id = flight.Id }, flight);
         }
     }
 }
