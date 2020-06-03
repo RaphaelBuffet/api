@@ -35,7 +35,7 @@ namespace TodoApi
                         Id = 1,
                         Department = "Sion",
                         Destination = "Zurich",
-                        Date = DateTime.Today.AddMonths(2).AddDays(1),
+                        Date = DateTime.Today.AddMonths(4).AddDays(1),
                         Seats = 120,
                         basePrice = 120,
                         isComplete = true
@@ -85,7 +85,7 @@ namespace TodoApi
                         Id = 6,
                         Department = "Zurich",
                         Destination = "Sion",
-                        Date = DateTime.Today.AddMonths(3).AddDays(2),
+                        Date = DateTime.Today.AddMonths(3).AddDays(7),
                         Seats = 70,
                         basePrice = 80,
                         isComplete = false

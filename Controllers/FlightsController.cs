@@ -56,7 +56,7 @@ namespace TodoApi.Controllers
             var tickets = await _context.Ticket
                 .Where(x=> x.IdFlight==id)
                 .ToListAsync();
-            DateTime LimitDate = DateTime.Now;
+            DateTime LimitDate = DateTime.Today;
 
             if (flight == null)
             {
@@ -66,12 +66,12 @@ namespace TodoApi.Controllers
             {
                 return flight.basePrice * 1.5;
             }
-            LimitDate.AddMonths(1);
+            LimitDate=LimitDate.AddMonths(1);
             if (flight.Seats *0.5> tickets.Count && flight.Date < LimitDate)
             {
                 return flight.basePrice * 0.7;
             }
-            LimitDate.AddMonths(1);
+            LimitDate=LimitDate.AddMonths(1);
             if (flight.Seats * 0.2 > tickets.Count && flight.Date < LimitDate)
             {
                 return flight.basePrice * 0.8;

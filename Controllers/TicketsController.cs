@@ -117,7 +117,39 @@ namespace TodoApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
-            _context.Ticket.Add(ticket);
+            var price = ticket.SalePrice;
+            var flight = await _context.Flight.FindAsync(ticket.Id);
+            var tickets = await _context.Ticket
+                .Where(x => x.IdFlight == ticket.IdFlight)
+                .ToListAsync();
+            DateTime LimitDate = DateTime.Today;
+
+            if (flight == null)
+            {
+                return NotFound();
+            }
+            if (flight.Seats * 0.8 < tickets.Count)
+            {
+                price= flight.basePrice * 1.5;
+            }
+            LimitDate = LimitDate.AddMonths(1);
+            if (flight.Seats * 0.5 > tickets.Count && flight.Date < LimitDate)
+            {
+                price = flight.basePrice * 0.7;
+            }
+            LimitDate = LimitDate.AddMonths(1);
+            if (flight.Seats * 0.2 > tickets.Count && flight.Date < LimitDate)
+            {
+                price = flight.basePrice * 0.8;
+            }
+            _context.Ticket.Add(
+                
+                new Ticket
+                {
+                    Id= ticket.Id,
+                    IdFlight = ticket.IdFlight,
+                    SalePrice= price
+                });
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
@@ -125,6 +157,7 @@ namespace TodoApi.Controllers
         private static CustomersTicket CustomerTicketChange(Ticket ticket,Customer customer) =>
             new CustomersTicket
             {
+                Id=customer.Id,
                 Firstname = customer.Firstname,
                 Lastname = customer.Lastname,
                 IdFlight = ticket.IdFlight,
