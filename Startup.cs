@@ -5,10 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
-using System.Reflection;
-using System;
-using Swashbuckle.Swagger;
 using Microsoft.OpenApi.Models;
 
 namespace TodoApi
