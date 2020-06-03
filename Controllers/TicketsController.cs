@@ -157,7 +157,7 @@ namespace TodoApi.Controllers
         private static CustomersTicket CustomerTicketChange(Ticket ticket,Customer customer) =>
             new CustomersTicket
             {
-                Id=customer.Id,
+                Id=ticket.Id,
                 Firstname = customer.Firstname,
                 Lastname = customer.Lastname,
                 IdFlight = ticket.IdFlight,
